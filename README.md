@@ -4,16 +4,16 @@
 
 ## The Stack
 
-- Angular 2+ (4.x)
-- ExpressJS (4.x - with compression)
-- Webpack (via `@angular/cli`)
+- [Angular](https://angular.io/) (4.x)
+- [Express](https://expressjs.com/) (4.x - with compression)
+- [Webpack](https://webpack.js.org/) (via `@angular/cli`)
 
 ## Concepts
 
 - Redux (`@ngrx/store` - with server calls)
 - [Smart & dumb components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
-- AOT() Ahead-of-Time compilation)
-- Advanced routing (lazy loading, router outlets...)
+- AOT (Ahead-of-Time compilation)
+- Advanced routing (lazy loading, router outlets, etc.)
 
 ## Install / Development
 
@@ -22,7 +22,11 @@
 git clone https://github.com/eryhM/RareInk.git
 cd RareInk
 
-# Install dependencies
+# Generate your secret key in the config file.
+cp server/config.example.ts server/config.ts
+
+# Install dependencies & perform initial build.
+# NOTE: This command will fail if you haven't generated the config file above.
 npm install
 
 # start server
