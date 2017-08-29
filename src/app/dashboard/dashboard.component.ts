@@ -7,7 +7,7 @@ import { FEED_ADD, FEED_REMOVE, FEED_ADD_COMMENT } from '../store/feed/feed.acti
 import { IAppState } from '../store';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'rareink-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })

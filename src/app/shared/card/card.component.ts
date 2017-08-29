@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-ui-card',
+  selector: 'rareink-ui-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })

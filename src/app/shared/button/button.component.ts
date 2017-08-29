@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from 
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-ui-button',
+  selector: 'rareink-ui-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css']
 })

@@ -10,7 +10,7 @@ import { IAppState } from './store/index';
 import { USER_GET } from './store/profile/profile.actions';
 
 @Component({
-  selector: 'app-root',
+  selector: 'rareink-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

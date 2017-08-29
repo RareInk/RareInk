@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-ui-loader',
+  selector: 'rareink-ui-loader',
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.css']
 })

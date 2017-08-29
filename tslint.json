@@ -117,13 +117,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "rareink",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "rareink",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

@@ -17,7 +17,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
+      "prefix": "rareink",
       "styles": [
         "../node_modules/normalize.css/normalize.css",
         "styles.css"

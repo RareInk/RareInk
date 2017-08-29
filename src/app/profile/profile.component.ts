@@ -4,7 +4,7 @@ import { IAppState } from '../store/index';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'rareink-profile',
   templateUrl: './profile.component.html'
 })
 export class ProfileComponent {

@@ -2,7 +2,7 @@ import { Component, OnInit, Directive, ChangeDetectionStrategy } from '@angular/
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-ui-modal',
+  selector: 'rareink-ui-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })

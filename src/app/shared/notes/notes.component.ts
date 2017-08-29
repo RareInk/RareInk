@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-ui-notes',
+  selector: 'rareink-ui-notes',
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.css']
 })

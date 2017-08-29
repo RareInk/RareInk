@@ -1,7 +1,7 @@
 <h2>Dashboard component</h2>
 
 <h3>Feeds</h3>
-<app-ui-notes *ngIf="!(feeds$ | async)?.length" type="info" text="No feed, add one."></app-ui-notes>
+<rareink-ui-notes *ngIf="!(feeds$ | async)?.length" type="info" text="No feed, add one."></rareink-ui-notes>
 
 <div class="feed animation" *ngFor="let item of feeds$ | async">
   <a>{{item.name}}</a>
@@ -34,8 +34,8 @@
 <br/>
 
 <form class="form" [formGroup]="form">
-  <app-ui-input label="Name" placeholder="Enter name...." [control]="form.get('name')"></app-ui-input>
-  <app-ui-input label="Text" placeholder="Enter text...." [control]="form.get('text')"></app-ui-input>
+  <rareink-ui-input label="Name" placeholder="Enter name...." [control]="form.get('name')"></rareink-ui-input>
+  <rareink-ui-input label="Text" placeholder="Enter text...." [control]="form.get('text')"></rareink-ui-input>
 
-  <app-ui-button [disabled]="!form.valid"  text="Add Feed" (click)="submitFeed()"></app-ui-button>
+  <rareink-ui-button [disabled]="!form.valid"  text="Add Feed" (click)="submitFeed()"></rareink-ui-button>
 </form>

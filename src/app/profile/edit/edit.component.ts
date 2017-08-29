@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-edit',
+  selector: 'rareink-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })

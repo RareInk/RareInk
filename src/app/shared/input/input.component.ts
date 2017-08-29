@@ -3,7 +3,7 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-ui-input',
+  selector: 'rareink-ui-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
