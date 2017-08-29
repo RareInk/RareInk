@@ -15,7 +15,7 @@
     "_server:build": "tsc -p ./server",
     "postinstall": "npm run build"
   },
-  "author": "Mhyre <https://github.com/eryhM>",
+  "author": "Mhyre",
   "contributors": [
     {
       "name": "Mhyre",
