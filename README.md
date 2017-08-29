@@ -6,46 +6,48 @@
 
 - Angular 2+ (4.x)
 - ExpressJS (4.x - with compression)
-- Webpack (angular-cli)
+- Webpack (via `@angular/cli`)
 
 ## Concepts
 
-- Redux (NgRx/Store - with server calls)
-- Smart & dumb components
-- AOT: Ahead-of-Time compilation
+- Redux (`@ngrx/store` - with server calls)
+- [Smart & dumb components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+- AOT() Ahead-of-Time compilation)
 - Advanced routing (lazy loading, router outlets...)
 
 ## Install / Development
 
 ```bash
-git clone https://github.com/vladotesanovic/angular2-express-starter
-cd angular2-express-starter
+# First, we'll have to clone the project.
+git clone https://github.com/eryhM/RareInk.git
+cd RareInk
 
 # Install dependencies
 npm install
 
 # start server
-npm run start
+npm start
 
-# Client url: http://localhost:4200
-# Application ( epxress ) API: http://localhost:4300
+# All good! Now open your browser.
+# Client: http://localhost:4200
+# Express API: http://localhost:4300
 ```
 
-Install Redux DevTools chrome extenstion:
+To improve the development experience, install the Redux DevTools Chrome extension:
 
 https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 
 ## Build / Production
 
 ```bash
-
+# Run this to compile the server and client
 npm run build
 
-## Deploy dist folder to app server
-
-Structure of dist folder:
-
-/dist/server <-- expressjs
-/dist/client <-- angular2
+# Once finished deploy the `dist/` folder to your app server.
+#
+# Folder structure:
+#
+# `/dist/server` <-- Express backend
+# `/dist/client` <-- Angular client
 
 ```
