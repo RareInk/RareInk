@@ -1,9 +1,12 @@
+@import "~styles/utils/variables";
+@import "~styles/utils/mixins";
+
 ul.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #008171;
+  background-color: $brand-color-wine-red;
 }
 
 ul.topnav li {float: left;}
@@ -18,8 +21,8 @@ ul.topnav li a {
   font-size: 17px;
 }
 
-ul.topnav li a:hover {background-color: #555;}
-ul.topnav li a.active {background-color: #555;}
+ul.topnav li a:hover {background-color: $brand-color-ink-black;}
+ul.topnav li a.active {background-color: $brand-color-ink-black;}
 ul.topnav li.icon {display: none;}
 
 @media screen and (max-width:680px) {
