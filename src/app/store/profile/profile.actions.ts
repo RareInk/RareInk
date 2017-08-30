@@ -1,9 +1,9 @@
 import { Action } from '@ngrx/store';
 import { IProfile } from './profile.reducer';
 
-export const USER_GET = '[Profile] get user';
-export const USER_GET_SUCCESS = '[Profile] get user success';
-export const USER_GET_FAIL = '[Profile] get user fail';
+export const USER_GET = 'profile/USER_GET';
+export const USER_GET_SUCCESS = 'profile/USER_GET_SUCCESS';
+export const USER_GET_FAIL = 'profile/USER_GET_FAIL';
 
 export class UserGet implements Action {
   readonly type = USER_GET;

@@ -1,18 +1,18 @@
 import { Action } from '@ngrx/store';
 
-export const WEATHER_GET = '[Weather] get weather for selected city';
-export const WEATHER_GET_SUCCESS = '[Weather] weather successfully get';
-export const WEATHER_GET_FAIL = '[Weather] error while fetching data';
+export const WEATHER_GET = 'weather/WEATHER_GET';
+export const WEATHER_GET_SUCCESS = 'weather/WEATHER_GET_SUCCESS';
+export const WEATHER_GET_FAIL = 'weather/WEATHER_GET_FAIL';
 
-export const AIR_QUALITY_GET = '[Weather] get air quality';
-export const AIR_QUALITY_GET_SUCCESS = '[Weather] air quality successfully get';
-export const AIR_QUALITY_GET_FAIL = '[Weather] error while fetching air quality';
+export const AIR_QUALITY_GET = 'weather/AIR_QUALITY_GET';
+export const AIR_QUALITY_GET_SUCCESS = 'weather/AIR_QUALITY_GET_SUCCESS';
+export const AIR_QUALITY_GET_FAIL = 'weather/AIR_QUALITY_GET_FAIL';
 
-export const SELECT_CITY = '[Weather] Select city';
+export const SELECT_CITY = 'weather/SELECT_CITY';
 
-export const WEATHER_DATA_GET = '[Weather] get weather data';
-export const WEATHER_DATA_GET_SUCCESS = '[Weather] weather data successfully get';
-export const WEATHER_DATA_GET_FAIL = '[Weather] error while fetching wearher data';
+export const WEATHER_DATA_GET = 'weather/WEATHER_DATA_GET';
+export const WEATHER_DATA_GET_SUCCESS = 'weather/WEATHER_DATA_GET_SUCCESS';
+export const WEATHER_DATA_GET_FAIL = 'weather/WEATHER_DATA_GET_FAIL';
 
 interface ILocation {
   longitude: number;

@@ -1,17 +1,17 @@
 import { IFeed, IFeedComment } from './feed.reducer';
 import { Action } from '@ngrx/store';
 
-export const FEED_ADD = '[Feed] add new';
-export const FEED_ADD_FAIL = '[Feed] add new fail';
-export const FEED_ADD_SUCCESS = '[Feed] add new success';
+export const FEED_ADD = 'feed/FEED_ADD';
+export const FEED_ADD_FAIL = 'feed/FEED_ADD_FAIL';
+export const FEED_ADD_SUCCESS = 'feed/FEED_ADD_SUCCESS';
 
-export const FEED_ADD_COMMENT = '[Feed] add new comment';
-export const FEED_ADD_COMMENT_FAIL = '[Feed] add new comment fail';
-export const FEED_ADD_COMMENT_SUCCESS = '[Feed] add new comment success';
+export const FEED_ADD_COMMENT = 'feed/FEED_ADD_COMMENT';
+export const FEED_ADD_COMMENT_FAIL = 'feed/FEED_ADD_COMMENT_FAIL';
+export const FEED_ADD_COMMENT_SUCCESS = 'feed/FEED_ADD_COMMENT_SUCCESS';
 
-export const FEED_REMOVE = '[Feed] remove';
-export const FEED_REMOVE_FAIL = '[Feed] remove fail';
-export const FEED_REMOVE_SUCCESS = '[Feed] remove success';
+export const FEED_REMOVE = 'feed/FEED_REMOVE';
+export const FEED_REMOVE_FAIL = 'feed/FEED_REMOVE_FAIL';
+export const FEED_REMOVE_SUCCESS = 'feed/FEED_REMOVE_SUCCESS';
 
 /* Feed Add */
 export class FeedAdd implements Action {
