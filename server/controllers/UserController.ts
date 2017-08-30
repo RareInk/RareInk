@@ -26,9 +26,15 @@ export default class UserCtrl extends BaseController {
           const token = sign(Object.assign({}, { user: user.username, permissions: [] }), process.env.APP_SECRET, {
             expiresIn: '7d'
           });
-          response.json({ jwt: token });
+          response.json({
+            status: 'success',
+            message: 'Authenticated',
+            data: {
+              jwt: token
+            }
+          });
         } else {
-          response.json({ message: 'Wrong password' });
+          response.json({ status: 'fail', message: 'Wrong password' });
         }
       });
     });
@@ -44,8 +50,11 @@ export default class UserCtrl extends BaseController {
 
     pbkdf2(request.body.password, salt, 10000, length, digest, (err: Error, hash: Buffer) => {
       response.json({
-        hashed: hash.toString('hex'),
-        salt,
+        status: 'success',
+        data: {
+          hashed: hash.toString('hex'),
+          salt
+        }
       });
     });
   }

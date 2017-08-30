@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { errors } from '../interfaces/api';
 import * as auth from '../lib/authentication';
 
 /**
@@ -11,7 +12,7 @@ export function validateAuthentication(req: Request, res: Response, next: NextFu
   const authHeader = req.get('Authorization');
   if (!authHeader) {
     return res.status(401).send({
-      error: 'Unauthorized',
+      status: 'error',
       message: 'You are not authenticated.',
     });
   }
@@ -20,7 +21,7 @@ export function validateAuthentication(req: Request, res: Response, next: NextFu
 
   if (!authMatch) {
     return res.status(401).send({
-      error: 'Unauthorized',
+      status: 'error',
       message: 'You are not authenticated.',
     });
   }
@@ -29,20 +30,20 @@ export function validateAuthentication(req: Request, res: Response, next: NextFu
     if (err) {
       if (err.name === 'TokenExpiredError') {
         return res.status(401).json({
-          error: 'TokenExpired',
-          message: 'jwt expired',
+          status: 'error',
+          message: err.message,
         });
       }
 
       if (err.name === 'JsonWebTokenError') {
         return res.status(401).json({
-          error: 'NoToken',
-          message: 'jwt must be provided',
+          status: 'error',
+          message: err.message,
         });
       }
-      console.log(err);
+
       return res.status(401).json({
-        error: 'Unauthorized',
+        status: 'error',
         message: 'You are not authenticated.',
       });
     }

@@ -15,7 +15,7 @@
 - AOT (Ahead-of-Time compilation)
 - Advanced routing (lazy loading, router outlets, etc.)
 
-## Install / Development
+## Install/Development
 
 ```bash
 # First, we'll have to clone the project.
@@ -23,7 +23,7 @@ git clone https://github.com/eryhM/RareInk.git
 cd RareInk
 
 # Generate your secret key in the config file.
-cp server/config.example.ts server/config.ts
+cp .env.example .env
 
 # Install dependencies & perform initial build.
 # NOTE: This command will fail if you haven't generated the config file above.
@@ -37,11 +37,19 @@ npm start
 # Express API: http://localhost:4300
 ```
 
+Don't forget to update your `.env` file and update the `APP_SECRET` variable! Run the `node` command-line and generate a secret key, for example:
+
+```js
+require('crypto').randomBytes(64, (err, buf) => { console.log(buf.toString('base64')) });
+```
+
+## Other Tools
+
 To improve the development experience, install the Redux DevTools Chrome extension:
 
 https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 
-## Build / Production
+## Build/Production
 
 ```bash
 # Run this to compile the server and client
