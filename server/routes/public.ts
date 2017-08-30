@@ -1,11 +1,11 @@
-import { Request, Response, Router } from "express";
+import { Request, Response, Router } from 'express';
 
 const publicRouter: Router = Router();
 
-publicRouter.get("/simple", (request: Request, response: Response) => {
+publicRouter.get('/simple', (request: Request, response: Response) => {
   response.json({
-    text: "Hello Angular 2",
-    title: "Greetings.",
+    text: 'Hello Angular 2',
+    title: 'Greetings.',
   });
 });
 

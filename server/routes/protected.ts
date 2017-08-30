@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response, Router } from "express";
-import { verify } from "jsonwebtoken";
-import { secret } from "../config";
+import { NextFunction, Request, Response, Router } from 'express';
+import { verify } from 'jsonwebtoken';
+import { secret } from '../config';
 
 const protectedRouter: Router = Router();
 
@@ -12,7 +12,7 @@ protectedRouter.use((request: AuthorizedRequest, response: Response, next: NextF
   verify(token, secret, (tokenError) => {
     if (tokenError) {
       return response.status(403).json({
-        message: "Invalid token, please Log in first",
+        message: 'Invalid token, please Log in first',
       });
     }
 
@@ -20,10 +20,10 @@ protectedRouter.use((request: AuthorizedRequest, response: Response, next: NextF
   });
 });
 
-protectedRouter.get("/", (request: Request, response: Response) => {
+protectedRouter.get('/', (request: Request, response: Response) => {
   response.json({
-    text: "Greetings, you have valid token.",
-    title: "Protected call",
+    text: 'Greetings, you have valid token.',
+    title: 'Protected call',
   });
 });
 

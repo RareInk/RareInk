@@ -1,0 +1,50 @@
+import * as dotenv from 'dotenv';
+import { NextFunction, Request, Response, Router } from 'express';
+import { sign } from 'jsonwebtoken';
+import { pbkdf2, randomBytes } from 'crypto';
+
+import { digest, length, secret } from '../config';
+import User from '../schemas/user';
+import { IUser } from '../interfaces/user';
+import BaseController from './BaseController';
+
+export default class UserCtrl extends BaseController {
+  public model = User;
+
+  public login = (request: Request, response: Response, next: NextFunction) => {
+    this.model.findOne({ email: request.body.email }, (err, user: IUser) => {
+      pbkdf2(request.body.password, user.salt, 10000, length, digest, (err: Error, hash: Buffer) => {
+        if (err) {
+          console.error(err);
+        }
+
+        // check if password is active
+        if (hash.toString('hex') === user.password) {
+
+          const token = sign(Object.assign({}, { user: user.username, permissions: [] }), secret, {
+            expiresIn: '7d'
+          });
+          response.json({ jwt: token });
+        } else {
+          response.json({ message: 'Wrong password' });
+        }
+      });
+    });
+  }
+
+  public register = (request: Request, response: Response, next: NextFunction) => {
+    if (!request.body.hasOwnProperty('password')) {
+      const err = new Error('No password');
+      return next(err);
+    }
+
+    const salt = randomBytes(128).toString('base64');
+
+    pbkdf2(request.body.password, salt, 10000, length, digest, (err: Error, hash: Buffer) => {
+      response.json({
+        hashed: hash.toString('hex'),
+        salt,
+      });
+    });
+  }
+}

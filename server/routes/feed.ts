@@ -1,9 +1,9 @@
-import { Request, Response, Router } from "express";
-import * as uuid from "uuid";
+import { Request, Response, Router } from 'express';
+import * as uuid from 'uuid';
 
 const feedRouter: Router = Router();
 
-feedRouter.post("/", (request: Request, response: Response) => {
+feedRouter.post('/', (request: Request, response: Response) => {
 
   response.json({
     id: uuid.v4(),
@@ -13,7 +13,7 @@ feedRouter.post("/", (request: Request, response: Response) => {
 
 });
 
-feedRouter.post("/:id/comment", (request: Request, response: Response) => {
+feedRouter.post('/:id/comment', (request: Request, response: Response) => {
 
   const feedID = request.params.id;
 
@@ -27,7 +27,7 @@ feedRouter.post("/:id/comment", (request: Request, response: Response) => {
 
 });
 
-feedRouter.delete("/:id", (request: Request, response: Response) => {
+feedRouter.delete('/:id', (request: Request, response: Response) => {
 
   response.json({
     id: request.params.id,
