@@ -1,10 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
+# Compiled output
 /dist
 /tmp
 
-# dependencies
+# Dependencies
 /node_modules
 /bower_components
 
@@ -16,7 +16,7 @@
 *.launch
 .settings/
 
-# misc
+# Misc
 /.sass-cache
 /connect.lock
 /coverage/*
@@ -24,11 +24,12 @@
 npm-debug.log
 testem.log
 /typings
+/.env
 
 # e2e
 /e2e/*.js
 /e2e/*.map
 
-#System Files
+# System files
 .DS_Store
 Thumbs.db

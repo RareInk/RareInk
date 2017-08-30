@@ -1,7 +1,10 @@
 import { pbkdf2, randomBytes } from 'crypto';
+import * as dotenv from 'dotenv';
 import { sign, verify, SignCallback, VerifyCallback } from 'jsonwebtoken';
 
-import { digest, length, secret } from '../config';
+import { digest, length } from '../config';
+
+dotenv.config({ path: '.env' });
 
 /**
  * Generate a salt and hash for password.
@@ -36,7 +39,7 @@ export function verifyPassword(password: string, salt: string, callback: (err: E
  * @returns The JWT token as a string.
  */
 export function signToken(tokenData: string | object | Buffer, callback: SignCallback) {
-  return sign(tokenData, secret, { expiresIn: '7d' }, callback);
+  return sign(tokenData, process.env.APP_SECRET, { expiresIn: '7d' }, callback);
 }
 
 /**
@@ -47,5 +50,5 @@ export function signToken(tokenData: string | object | Buffer, callback: SignCal
  * @param  {VerifyCallback} callback The callback
  */
 export function verifyToken(token: string, callback: VerifyCallback) {
-  return verify(token, secret, callback);
+  return verify(token, process.env.APP_SECRET, callback);
 }

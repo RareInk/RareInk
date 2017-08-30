@@ -1,5 +1,6 @@
 import { Application, Router } from 'express';
 import UserController from './controllers/UserController';
+import { validateAuthentication } from './middleware/authentication';
 
 export default function setRoutes(app: Application) {
   const router: Router = Router();
@@ -10,7 +11,7 @@ export default function setRoutes(app: Application) {
   // Users
   router.route('/login').post(user.login);
   router.route('/register').post(user.register);
-  // router.route('/users').get(userCtrl.getAll);
+  router.route('/users').get(validateAuthentication);
   // router.route('/users/count').get(userCtrl.count);
   // router.route('/user').post(userCtrl.insert);
   // router.route('/user/:id').get(userCtrl.get);

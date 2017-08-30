@@ -5,13 +5,16 @@
  */
 
 import * as http from 'http';
+import * as dotenv from 'dotenv';
 import { app } from '../app';
-import { serverPort } from '../config';
+
+// Load our dotenv file.
+dotenv.config({ path: '.env' });
 
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || serverPort);
+const port = normalizePort(process.env.PORT || '4300');
 app.set('port', port);
 
 /**

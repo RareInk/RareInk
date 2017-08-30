@@ -1,12 +1,14 @@
 import * as dotenv from 'dotenv';
-import { NextFunction, Request, Response, Router } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { sign } from 'jsonwebtoken';
 import { pbkdf2, randomBytes } from 'crypto';
 
-import { digest, length, secret } from '../config';
+import { digest, length } from '../config';
 import User from '../schemas/user';
 import { IUser } from '../interfaces/user';
 import BaseController from './BaseController';
+
+dotenv.config({ path: '.env' });
 
 export default class UserCtrl extends BaseController {
   public model = User;
@@ -21,7 +23,7 @@ export default class UserCtrl extends BaseController {
         // check if password is active
         if (hash.toString('hex') === user.password) {
 
-          const token = sign(Object.assign({}, { user: user.username, permissions: [] }), secret, {
+          const token = sign(Object.assign({}, { user: user.username, permissions: [] }), process.env.APP_SECRET, {
             expiresIn: '7d'
           });
           response.json({ jwt: token });

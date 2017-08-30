@@ -1,9 +1,10 @@
 import { pbkdf2, randomBytes } from 'crypto';
+import * as dotenv from 'dotenv';
 import { NextFunction } from 'express';
-import { Document, Schema, model } from "mongoose";
+import { Document, Schema, model } from 'mongoose';
 
-import { digest, length, secret } from '../config';
-import { IUser } from "../interfaces/user";
+import { digest, length } from '../config';
+import { IUser } from '../interfaces/user';
 
 const userSchema: Schema = new Schema({
   username: String,

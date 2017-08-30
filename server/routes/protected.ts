@@ -1,6 +1,8 @@
+import * as dotenv from 'dotenv';
 import { NextFunction, Request, Response, Router } from 'express';
 import { verify } from 'jsonwebtoken';
-import { secret } from '../config';
+
+dotenv.config({ path: '.env' });
 
 const protectedRouter: Router = Router();
 
@@ -9,10 +11,11 @@ type AuthorizedRequest = Request & { headers: { authorization: string } };
 protectedRouter.use((request: AuthorizedRequest, response: Response, next: NextFunction) => {
   const token = request.headers.authorization;
 
-  verify(token, secret, (tokenError) => {
+  verify(token, process.env.APP_SECRET, (tokenError) => {
     if (tokenError) {
       return response.status(403).json({
-        message: 'Invalid token, please Log in first',
+        status: 'error',
+        message: 'Invalid token, please Log in first'
       });
     }
 
@@ -22,8 +25,8 @@ protectedRouter.use((request: AuthorizedRequest, response: Response, next: NextF
 
 protectedRouter.get('/', (request: Request, response: Response) => {
   response.json({
-    text: 'Greetings, you have valid token.',
-    title: 'Protected call',
+    status: 'success',
+    message: 'Welcome, you are now authorised.'
   });
 });
 
