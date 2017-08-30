@@ -6,21 +6,21 @@ import { profileReducer, IProfile } from './profile/profile.reducer';
 import { IWeather, weatherReducer } from './weather/weather.reducer';
 import { environment } from '../../environments/environment';
 
-// all new reducers should be define here
+// Define new stores here...
 export interface IAppState {
   feed: IFeed[];
   profile: IProfile;
   weather: IWeather;
 }
 
-// all new reducers should be define here
+// ...as well as its reducers here.
 export const reducers: ActionReducerMap<IAppState> = {
   feed: feedReducer,
   profile: profileReducer,
   weather: weatherReducer
 };
 
-// console.log all actions
+// Log all actions
 export function logger(reducer: ActionReducer<IAppState>): ActionReducer<any, any> {
   return function(state: IAppState, action: any): IAppState {
     console.log('state', state);
