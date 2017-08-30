@@ -14,6 +14,6 @@ export class ModalComponent implements OnInit {
 }
 
 @Directive({
-  selector: 'app-modal-header, app-modal-body' // tslint:disable-line
+  selector: 'rareink-modal-header, rareink-modal-body' // tslint:disable-line
 })
 export class ModalDirectivesDirective {}
