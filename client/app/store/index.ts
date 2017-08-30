@@ -1,6 +1,7 @@
 import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { storeFreeze } from 'ngrx-store-freeze';
 
+import { authReducer, IAuthState } from './auth/auth.reducer';
 import { feedReducer, IFeed } from './feed/feed.reducer';
 import { profileReducer, IProfile } from './profile/profile.reducer';
 import { IWeather, weatherReducer } from './weather/weather.reducer';
@@ -8,6 +9,7 @@ import { environment } from '../../environments/environment';
 
 // Define new stores here...
 export interface IAppState {
+  auth: IAuthState;
   feed: IFeed[];
   profile: IProfile;
   weather: IWeather;
@@ -15,6 +17,7 @@ export interface IAppState {
 
 // ...as well as its reducers here.
 export const reducers: ActionReducerMap<IAppState> = {
+  auth: authReducer,
   feed: feedReducer,
   profile: profileReducer,
   weather: weatherReducer
