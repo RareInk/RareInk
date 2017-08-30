@@ -6,7 +6,7 @@ import { pbkdf2, randomBytes } from 'crypto';
 import { digest, length } from '../config';
 import User from '../schemas/user';
 import { IUser } from '../interfaces/user';
-import BaseController from './BaseController';
+import BaseController from './baseController';
 
 dotenv.config({ path: '.env' });
 
