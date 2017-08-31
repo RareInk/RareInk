@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import { errors } from '../interfaces/api';
 import * as auth from '../lib/authentication';
 
 /**
@@ -19,36 +18,13 @@ export function validateAuthentication(req: Request, res: Response, next: NextFu
 
   const authMatch = authHeader.match(/Bearer (.*)$/);
 
-  if (!authMatch) {
-    return res.status(401).send({
-      status: 'error',
-      message: 'You are not authenticated.',
+  if (authMatch) {
+    auth.verifyToken(authMatch[1], (err) => {
+      if (err) {
+        return res.status(401).json({status: 'error', data: {message: 'Failed to authenticate token.'}});
+      }
     });
+  } else {
+    return res.status(403).send({status: 'error', data: {message: 'No token provided'}});
   }
-
-  return auth.verifyToken(authMatch[1], (err) => {
-    if (err) {
-      if (err.name === 'TokenExpiredError') {
-        return res.status(401).json({
-          status: 'error',
-          message: err.message,
-        });
-      }
-
-      if (err.name === 'JsonWebTokenError') {
-        return res.status(401).json({
-          status: 'error',
-          message: err.message,
-        });
-      }
-
-      return res.status(401).json({
-        status: 'error',
-        message: 'You are not authenticated.',
-      });
-    }
-
-
-    return next();
-  });
 }

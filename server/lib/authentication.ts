@@ -2,9 +2,10 @@ import { pbkdf2, randomBytes } from 'crypto';
 import * as dotenv from 'dotenv';
 import { sign, verify, SignCallback, VerifyCallback } from 'jsonwebtoken';
 
-import { digest, length } from '../config';
-
 dotenv.config({ path: '.env' });
+
+const digest = 'sha256';
+const length = 128;
 
 /**
  * Generate a salt and hash for password.
